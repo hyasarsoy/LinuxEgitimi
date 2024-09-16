@@ -1,0 +1,46 @@
+Linux Eğitim İçeriği
+Temel Düzey Linux Eğitimi (5 GÜN)
+1. Giriş ve Sistem Mimarisi
+• Linux Nedir ve Tarihçesi
+• Linux Dağıtımları ve Kurulumu
+• Temel Linux Komutları
+• Linux Dosya Sistemi Yapısı
+• Dosya ve Dizin Yönetimi
+• Sistemi Başlatma ve Kapatma
+• Sistem Mimarisi:
+o Donanım ayarlarını belirleme ve yapılandırma
+o Sistemi başlatma
+o Runlevel / boot hedeflerini değiştirme ve sistemi kapatma veya yeniden başlatma
+2. Kullanıcı ve Dosya Yönetimi
+• Kullanıcı ve Grup Yönetimi
+• Dosya İzinleri ve Sahipliği
+• Temel Kabuk Komutları ve Kabuk Betikleri
+• Metin Düzenleyiciler: Nano ve Vim Kullanımı
+• Dosya yapısı ve Hiyerarşi:
+o Partition ve dosya sistemleri oluşturma
+o Dosya sistemlerinin bütünlüğünü koruma
+o Dosya sistemlerini bağlama ve çıkarma
+o Dosya izinlerini ve sahipliğini yönetme
+o Sabit ve sembolik bağlantılar oluşturma ve değiştirme
+o Sistem dosyalarını bulma ve doğru konuma yerleştirme
+o Dosya sistemi seçeneklerini oluşturma ve yapılandırma
+• Linux Shell Script:
+o Kabuk ortamını özelleştirme ve kullanma
+3. Sistem ve Ağ Temelleri
+• Paket Yönetimi: apt, yum, dnf
+• Temel Ağ Kavramları ve Yapılandırması
+• SSH ile Uzak Bağlantılar
+• Basit Ağ Sorun Giderme
+• Temel Güvenlik İpuçları
+• Yönetimsel İşlemler:
+o Kullanıcı ve grup hesaplarını ve ilgili sistem dosyalarını yönetme
+o İşleri zamanlayarak sistem yönetim görevlerini otomatikleştirme
+o Yerelleştirme ve uluslararasılaştırma
+• Ağ Temelleri:
+o İnternet protokolleri
+o Kalıcı ağ yapılandırması
+o Temel ağ sorun giderme
+o DNS yapılandırma
+o İleri Ağ Yapılandırması
+o Ağ sorunlarını giderme
+ 
