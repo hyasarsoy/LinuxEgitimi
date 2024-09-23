@@ -4,8 +4,8 @@ Bu repo, Linux eğitimine yönelik çeşitli materyalleri ve rehberleri içermek
 
 ## İçerik
 
-1. **[Genel Bilgiler](genelbilgiler.md)**: Eğitimde kullanılacak materyaller, gereklilikler ve platformlar hakkında bilgi verir.
-2. **[Eğitim İçeriği](egitim.md)**: 5 günlük eğitim programının detaylı içeriği, günlük konular ve kazanımlar.
+1. **[Genel Bilgiler](GenelBilgiler.md)**: Eğitimde kullanılacak materyaller, gereklilikler ve platformlar hakkında bilgi verir.
+2. **[Eğitim İçeriği](Egitimİcerigi.md)**: 5 günlük eğitim programının detaylı içeriği, günlük konular ve kazanımlar.
 
 ## Repo Kullanımı
 
