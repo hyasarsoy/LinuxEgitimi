@@ -92,9 +92,4 @@ Sistemi yeniden başlatmak için:
 - **Runlevel**: Klasik Unix/Linux sistemlerinde kullanılır. Örneğin, `runlevel 3` ağ ile çok kullanıcılı modu ifade eder.
 - **Target**: Systemd ile birlikte gelen daha modern bir kavramdır ve daha esnektir. `multi-user.target`, runlevel 3'e eşdeğerdir.
 
----
 
-Bu bölümde, runlevel ve systemd hedefleri kavramını, runlevel/boot hedeflerini değiştirmeyi ve sistemi nasıl kapatıp yeniden başlatacağınızı öğrendik. Bu komutlar, bir sistem yöneticisi olarak sistemin kontrolünü daha iyi sağlamanıza yardımcı olacaktır.
-```
-
-Bu içerik, **Runlevel / Boot hedeflerini değiştirme ve sistemi kapatma veya yeniden başlatma** konusunda kapsamlı bir rehber sunarak, eğitim katılımcılarının Linux sistemlerinde runlevel kavramını ve systemd yapılarını öğrenmelerine yardımcı olacaktır.
