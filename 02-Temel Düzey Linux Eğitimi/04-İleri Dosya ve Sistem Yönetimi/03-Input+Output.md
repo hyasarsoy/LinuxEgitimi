@@ -163,4 +163,9 @@ Bu komut, `ls` çıktısını ekrana yazdırırken aynı zamanda `dosya.txt` dos
 - **`tee`:** Çıktıyı hem dosyaya hem de ekrana yönlendirir.
 
 Girdi ve çıktıları etkili bir şekilde yönetmek, komut satırı işlemlerini daha esnek ve güçlü hale getirir. Yönlendirme ve boru kullanımıyla karmaşık işlemleri kolaylaştırabilir ve çıktılarınızı daha verimli yönetebilirsiniz.
-```
+
+https://www.gnu.org/software/bash/manual/html_node/Redirections.html
+
+**tty**
+
+
