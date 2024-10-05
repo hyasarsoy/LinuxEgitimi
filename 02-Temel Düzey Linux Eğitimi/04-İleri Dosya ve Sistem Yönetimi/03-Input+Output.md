@@ -166,6 +166,12 @@ Girdi ve çıktıları etkili bir şekilde yönetmek, komut satırı işlemlerin
 
 https://www.gnu.org/software/bash/manual/html_node/Redirections.html
 
+```bash
 **tty**
+date > date.txt
+cut < date.txt --delimiter " " --fields 1
+date | cut --delimiter " " --fields 1 
+date | --delimiter " " --fields 1 > bugün.txt
 
+```
 
