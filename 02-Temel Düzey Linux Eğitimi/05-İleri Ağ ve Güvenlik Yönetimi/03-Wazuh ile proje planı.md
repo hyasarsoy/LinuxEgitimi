@@ -1,5 +1,4 @@
-
-#1-  Wazuh: Açık Kaynak Güvenlik Platformu
+##1-  Wazuh: Açık Kaynak Güvenlik Platformu
 
 ## Wazuh Nedir?
 
