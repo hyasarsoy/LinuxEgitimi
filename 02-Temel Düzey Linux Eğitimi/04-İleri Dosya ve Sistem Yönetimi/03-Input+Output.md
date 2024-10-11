@@ -172,6 +172,8 @@ date > date.txt
 cut < date.txt --delimiter " " --fields 1
 date | cut --delimiter " " --fields 1 
 date | --delimiter " " --fields 1 > bugün.txt
+date > bugün.txt | --delimiter " " --fields 1  --data birden çok yere gidemez
+
 
 ```
 
