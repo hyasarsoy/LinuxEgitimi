@@ -82,6 +82,76 @@ Yeni ortam değişkeninizin değerini doğrudan kontrol edebilirsiniz:
 echo $MY_ENV_VAR
 ```
 
+
+# PATH Ortam Değişkenini Değiştirme
+
+Linux'ta `PATH` değişkeni en önemli ortam değişkenlerinden biridir. Sistem, çalıştırılabilir dosyaları nerede arayacağını bu değişkenden öğrenir. Şimdi bu değişkene yeni bir dizin ekleyerek nasıl değiştirebileceğimizi görelim.
+
+Öncelikle, özel scriptlerinizi saklayabileceğiniz yeni bir dizin oluşturalım:
+
+```bash
+mkdir ~/my_scripts
+```
+
 ### Kodu Açıklayın
-Harika! Artık ilk ortam değişkeninizi oluşturdunuz ve bunun kabuk değişkeninden nasıl farklı olduğunu gördünüz. Temel fark, `export` ile oluşturulan ortam değişkenlerinin alt işlemlere erişilebilir olması, kabuk değişkenlerinin ise olmamasıdır.
-`
+Bu komut, home dizininde `my_scripts` adında bir dizin oluşturur. Bu dizin, kullanıcıya özel scriptlerin saklanacağı bir yer olacaktır.
+
+Şimdi, bu yeni dizini `PATH`'inize ekleyelim. Yine `export` komutunu kullanacağız, ancak bu sefer var olan bir ortam değişkenini değiştireceğiz:
+
+```bash
+export PATH="$PATH:$HOME/my_scripts"
+```
+
+### Kodu Açıklayın
+Bu komutu şu şekilde parçalara ayıralım:
+- `$PATH` şu anda `PATH`'in mevcut değerini gösterir.
+- `:` dizinleri `PATH`'de ayırmak için kullanılır.
+- `$HOME`, home dizininizi gösteren bir ortam değişkenidir.
+
+Bu komutla, `:$HOME/my_scripts` yolunu mevcut `PATH`'e eklemiş oluyoruz. Böylece, `my_scripts` dizinini de sistem çalıştırılabilir dosyaları ararken kontrol edecektir.
+
+Yeni dizinin `PATH`'e eklendiğini doğrulamak için şu komutu kullanın:
+
+```bash
+echo $PATH
+```
+
+### Kodu Açıklayın
+Bu komut, güncel `PATH` değerini ekranda gösterecektir. `:/home/kullanici_adiniz/my_scripts` yolunu `PATH`'in sonunda görebilmelisiniz.
+
+Bu işlemi test etmek için, yeni dizinimizde basit bir script oluşturalım:
+
+```bash
+echo '#!/bin/bash
+echo "Özel scriptimden merhaba!"' > ~/my_scripts/hello.sh
+```
+
+### Kodu Açıklayın
+Bu komut, `my_scripts` dizininde `hello.sh` adında bir dosya oluşturur ve içerisine bir script ekler. Bu script çalıştırıldığında `"Özel scriptimden merhaba!"` mesajını ekrana yazdıracaktır.
+
+Oluşturduğumuz scripti çalıştırılabilir hale getirelim:
+
+```bash
+chmod +x ~/my_scripts/hello.sh
+```
+
+### Kodu Açıklayın
+Bu komut, `hello.sh` scriptini çalıştırılabilir (executable) yapar, böylece terminalde bu scripti doğrudan çalıştırabilirsiniz.
+
+Şimdi, bu scripti herhangi bir dizinden sadece adını yazarak çalıştırabilmelisiniz:
+
+```bash
+hello.sh
+```
+
+### Kodu Açıklayın
+Eğer her şey doğru çalıştıysa, `"Özel scriptimden merhaba!"` mesajını görmelisiniz.
+
+Bu, `my_scripts` dizinini `PATH`'e eklememiz sayesinde çalışıyor. Bir komut yazdığınızda, kabuk o komut için çalıştırılabilir bir dosyayı `PATH`'de listelenen dizinler içinde arar. Biz de `my_scripts` dizinini `PATH`'e ekleyerek kabuğa bu dizinde de arama yapması gerektiğini söyledik.
+
+Bunu göstermek için farklı bir dizine geçin ve scripti tekrar çalıştırın:
+
+```bash
+cd /tmp
+hello.sh
+```
