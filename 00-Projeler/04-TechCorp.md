@@ -27,7 +27,7 @@ $ devtool
 TechCorp DevTool v1.0
 
 $ echo $TECHCORP_CONFIG
-/home/labex/techcorp_config.json
+/home/user/techcorp_config.json
 ```
 ```
 
