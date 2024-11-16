@@ -126,5 +126,4 @@
    - CPU, bellek ve disk kullanımını analiz etme.
    - Uygulama: Kaynak kullanımını izleme, sistem büyüme planları ve gelecekteki gereksinimleri tahmin etme.
 
----
 
