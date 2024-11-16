@@ -128,5 +128,3 @@
 
 ---
 
-### **Ders Özeti:**
-Bu eğitim, Linux sistemlerinde ileri düzey dosya yönetimi, ağ servisleri, sistem izleme, yedekleme, güvenlik ve e-posta hizmetleri gibi konuları kapsamaktadır. Dersin sonunda, katılımcılar Linux sistem yönetimi konusunda derinlemesine bilgi sahibi olacak ve ağ, güvenlik, yedekleme ve performans izleme gibi önemli konularda tecrübe kazanacaklardır. 
