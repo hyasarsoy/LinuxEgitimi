@@ -167,6 +167,148 @@ Bu bölüm, ağ yönetimi, gelişmiş servisler ve sunucu yapılandırmaları il
 
 ---
 
+```markdown
+# **Birden Çok Ağ Adaptörü Eklemek ve Belirli IP Blokları için Route Yazmak**
+
+Bu bölümde, bir Linux sunucusunda birden çok ağ adaptörü (örneğin, `eth0`, `eth1`, `eth2`) yapılandırmayı ve belirli IP adresleri veya IP blokları için özel yönlendirme kurallarını (static routes) yapılandırmayı öğreneceğiz.
+
+---
+
+## **1. Ağ Adaptörlerini Yapılandırma**
+Linux'ta, ağ adaptörlerini manuel olarak yapılandırabilir veya ağ yapılandırma araçları (NetworkManager, `netplan`, `ifconfig`, vs.) kullanabilirsiniz.
+
+### **Örnek Senaryo:**
+- **eth0:** Varsayılan ağ trafiği.
+- **eth1:** IP adresi `192.168.1.10`, yalnızca `10.10.0.34` IP'sine trafik göndermek için.
+- **eth2:** IP adresi `192.168.2.10`, yalnızca `10.50.40.0/24` ağına trafik göndermek için.
+
+### **Adımlar:**
+
+#### **1.1 Ağ Adaptörlerini Eklemek**
+1. Ağ adaptörlerini tanımlamak için `/etc/network/interfaces` dosyasını düzenleyin:
+   ```bash
+   sudo nano /etc/network/interfaces
+   ```
+
+2. Aşağıdaki yapılandırmayı ekleyin:
+   ```plaintext
+   # eth0 - Varsayılan ağ
+   auto eth0
+   iface eth0 inet dhcp
+
+   # eth1 - Özel yönlendirme için
+   auto eth1
+   iface eth1 inet static
+       address 192.168.1.10
+       netmask 255.255.255.0
+       gateway 192.168.1.1
+
+   # eth2 - Özel yönlendirme için
+   auto eth2
+   iface eth2 inet static
+       address 192.168.2.10
+       netmask 255.255.255.0
+       gateway 192.168.2.1
+   ```
+
+3. Değişiklikleri uygulamak için ağ servislerini yeniden başlatın:
+   ```bash
+   sudo systemctl restart networking
+   ```
+
+#### **1.2 Ağ Adaptörlerinin Durumunu Kontrol Etmek**
+Ağ adaptörlerini kontrol etmek için:
+```bash
+ip addr
+```
+Çıktıda `eth0`, `eth1`, ve `eth2` adaptörlerini ve IP adreslerini görebilirsiniz.
+
+---
+
+## **2. Belirli IP Blokları için Route Yazmak**
+
+### **2.1 Statik Route Ekleme**
+Belirli IP adresleri veya ağlar için rotaları `ip route` komutuyla ekleyebilirsiniz.
+
+#### **2.1.1 Örnek 1: 10.10.0.34 IP'si için eth1 üzerinden yönlendirme**
+```bash
+sudo ip route add 10.10.0.34 via 192.168.1.1 dev eth1
+```
+
+#### **2.1.2 Örnek 2: 10.50.40.0/24 ağı için eth2 üzerinden yönlendirme**
+```bash
+sudo ip route add 10.50.40.0/24 via 192.168.2.1 dev eth2
+```
+
+### **2.2 Route Kalıcılığını Sağlamak**
+Yukarıdaki komutlar sistemi yeniden başlattığınızda kaybolur. Statik rotaları kalıcı hale getirmek için, aşağıdaki yöntemleri kullanabilirsiniz.
+
+#### **2.2.1 `/etc/network/interfaces` Dosyasında Route Tanımlama**
+`/etc/network/interfaces` dosyasına rotaları ekleyin:
+```plaintext
+# eth1 rotası
+up ip route add 10.10.0.34 via 192.168.1.1 dev eth1
+
+# eth2 rotası
+up ip route add 10.50.40.0/24 via 192.168.2.1 dev eth2
+```
+
+#### **2.2.2 Kalıcı Route Dosyaları**
+Bazı Linux dağıtımlarında `/etc/network/interfaces` yerine, `/etc/sysconfig/network-scripts/` veya `/etc/netplan/` gibi yollar kullanılabilir.
+
+**Örnek:** Netplan kullanan Ubuntu dağıtımı için:
+1. `/etc/netplan/01-netcfg.yaml` dosyasını düzenleyin:
+   ```yaml
+   network:
+       version: 2
+       renderer: networkd
+       ethernets:
+           eth1:
+               addresses:
+                   - 192.168.1.10/24
+               routes:
+                   - to: 10.10.0.34
+                     via: 192.168.1.1
+
+           eth2:
+               addresses:
+                   - 192.168.2.10/24
+               routes:
+                   - to: 10.50.40.0/24
+                     via: 192.168.2.1
+   ```
+
+2. Değişiklikleri uygulayın:
+   ```bash
+   sudo netplan apply
+   ```
+
+---
+
+## **3. Rotaları ve Trafiği Doğrulama**
+
+### **3.1 Rotaları Kontrol Etmek**
+Ağ yönlendirme tablosunu görmek için:
+```bash
+ip route show
+```
+
+### **3.2 Trafik Doğrulama**
+Belirli bir IP'ye trafik gönderilip gönderilmediğini doğrulamak için `ping` komutunu kullanabilirsiniz:
+```bash
+ping 10.10.0.34
+ping 10.50.40.1
+```
+
+### **3.3 tcpdump ile Trafik İzleme**
+Hangi adaptör üzerinden trafik gittiğini görmek için `tcpdump` kullanabilirsiniz:
+```bash
+sudo tcpdump -i eth1 host 10.10.0.34
+sudo tcpdump -i eth2 net 10.50.40.0/24
+```
+
+---
+
 ## Özet
 
 Bu bölümde, ağ yönetimi ve çeşitli sunucu yapılandırmaları ele alınmaktadır. DHCP, DNS, web sunucuları (Apache/Nginx), FTP, Samba, güvenlik duvarı, VPN, ve dosya paylaşım protokolleri hakkında temel ve ileri seviye bilgiler sunulmuştur. Ağ güvenliği ve istemci ağı yönetimi konularında ise güvenlik önlemleri ve kimlik doğrulama yöntemleri ele alınmıştır.
