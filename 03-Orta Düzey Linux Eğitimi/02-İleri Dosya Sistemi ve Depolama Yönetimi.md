@@ -154,9 +154,9 @@ Bu ders, ileri düzey dosya sistemi yönetimi, yedekleme, RAID ve LVM yapıland�
   resize2fs /dev/hacimGrubu/mantiksalHacim
   ```
 
----
+--
 
- ![](00-Projeler/Assets/lvm.jpeg)
+ ![LVM](00-Projeler/Assets/lvm.jpeg)
  
 --
 
