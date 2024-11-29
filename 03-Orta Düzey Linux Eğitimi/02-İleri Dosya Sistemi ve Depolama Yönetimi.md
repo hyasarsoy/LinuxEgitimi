@@ -156,7 +156,7 @@ Bu ders, ileri düzey dosya sistemi yönetimi, yedekleme, RAID ve LVM yapıland�
 
 --
 
- ![LVM](00-Projeler/Assets/lvm.jpeg)
+ ![LVM](../00-Projeler/Assets/lvm.jpeg)
  
 --
 
