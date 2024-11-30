@@ -1,4 +1,3 @@
-```markdown
 # **Sensor Verilerini İşleme**
 
 Bu projede, sensör verilerinden düşman gemi hareketlerini içeren bilgileri filtreleyecek, sıralayacak ve yinelenen kayıtları temizleyecek bir veri işleme hattı oluşturacaksınız.
