@@ -167,7 +167,6 @@ Bu bölüm, ağ yönetimi, gelişmiş servisler ve sunucu yapılandırmaları il
 
 ---
 
-```markdown
 # **Birden Çok Ağ Adaptörü Eklemek ve Belirli IP Blokları için Route Yazmak**
 
 Bu bölümde, bir Linux sunucusunda birden çok ağ adaptörü (örneğin, `eth0`, `eth1`, `eth2`) yapılandırmayı ve belirli IP adresleri veya IP blokları için özel yönlendirme kurallarını (static routes) yapılandırmayı öğreneceğiz.
