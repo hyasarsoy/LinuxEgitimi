@@ -1,4 +1,3 @@
-```markdown
 # **4. Gün: İstemci Ağı Yönetimi ve E-posta Hizmetleri**
 
 ## **1. İstemci Ağı Yönetimi**
