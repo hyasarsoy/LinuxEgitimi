@@ -1,4 +1,3 @@
-```markdown
 # **6. Gün: Sistem Yönetimi ve Bakımı - 2. Bölüm**
 
 ## **1. Paket Yönetimi ve Yazılım Güncellemeleri**
