@@ -1,6 +1,3 @@
-Tabii ki! Aşağıda 5. gün ders içeriğini detaylandıran ve yönlendirici bir şekilde düzenlenmiş `.md` formatındaki açıklayıcı ve uygulamalı içerik bulunmaktadır:
-
-```markdown
 # **5. Gün: Sistem Yönetimi ve Bakımı - 1. Bölüm**
 
 ## **1. Otomatikleştirilmiş Görevler: cron (1 Saat)**
